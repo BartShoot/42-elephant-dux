@@ -1,27 +1,26 @@
+units:
+  Ux: U+8
 points:
   zones:
     matrix:
+      key:
+        padding: U
+        spread: U
       columns:
         pinky:
           key:
-            spread: U
-            stagger: 51
             splay: 15
-            origin: [0, -17]
           rows:
             bottom:
-              bind: [5, 0, 0, 0]
               column_net: P7
             home:
-              bind: [0, 12, 0, 0]
               column_net: P6
             top:
               bind: [0, 8, 5, 0]
               column_net: P5 
         ring:
           key:
-            spread: 18
-            stagger: 17
+            stagger: 12
             splay: -10
             origin: [0, -17]
           rows:
@@ -37,7 +36,6 @@ points:
         middle:
           key:
             shift: [0.2, 0]
-            spread: 18
             stagger: 17/3
             splay: -5
             origin: [0, -17]
@@ -53,7 +51,6 @@ points:
               column_net: P18
         index:
           key:
-            spread: 18
             stagger: -17/3
             splay: -5
             origin: [0, -17]
@@ -69,8 +66,7 @@ points:
               column_net: P16
         inner:
           key:
-            spread: 18
-            stagger: -17/6
+            stagger: -10
             origin: [0, -17]
           rows: 
             bottom:
@@ -84,9 +80,7 @@ points:
               column_net: P21
       rows:
         bottom:
-          padding: 17
         home:
-          padding: 17
         top:
     thumb:
       anchor:
@@ -97,86 +91,76 @@ points:
           key:
             splay: -20
           rows:
-            only:
+            first:
               column_net: P8
               bind: [10, 1, 0, 70]
             second:
         second:
           key:
-            spread: 18
             splay: -10
             origin: [-9, -9.5]
           rows:
-            only:
+            first:
               column_net: P9
               bind: [0, 0, 0, 5]
             second:
         third:
           key:
-            origin: [-10, -5]
+            origin: [-9, -9.5]
             splay: -10
           rows:
-            only:
+            first:
             second:
-      rows:
-        only:
-          padding: 17
-      key:
-        footprints:
+#  mirror: &mirror
+#    ref: matrix_inner_bottom
+#    distance: 6.5U  
 outlines:
   raw:
     - what: rectangle
       where: true
-      bound: true
-      asym: left
-      size: [18,17]
-      corner: 1
-  first:
-    - what: outline
-      name: raw
-      fillet: 3
-  second:
-    - what: outline
-      name: first
-      fillet: 2
-  third:
-    - what: outline
-      name: second
+      bound: false
+      size: [13.95, 13.95]
+  plate:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: matrix_pinky_top
+          shift: [-0.5Ux,0.5Ux]
+        - ref: matrix_ring_top
+          shift: [-0.5Ux,0.5Ux]
+        - ref: matrix_middle_top
+          shift: [-0.5Ux,0.5Ux]
+        - ref: matrix_middle_top
+          shift: [0.5Ux,0.5Ux]
+        - ref: matrix_index_top
+          shift: [0.5Ux,0.5Ux]
+        - ref: matrix_inner_top
+          shift: [0.5Ux,0.5Ux]
+        - ref: matrix_inner_bottom
+          shift: [0.5Ux,-0.37Ux]
+        - ref: thumb_second_second
+          shift: [-0.5Ux,0.5Ux]
+        - ref: thumb_second_second
+          shift: [0.5Ux,0.5Ux]
+        - ref: thumb_third_second
+          shift: [0.5Ux,0.5Ux]
+        - ref: thumb_third_first
+          shift: [0.5Ux,-0.5Ux]
+        - ref: thumb_second_first
+          shift: [0.5Ux,-0.5Ux]
+        - ref: thumb_second_first
+          shift: [-0.5Ux,-0.5Ux]
+        - ref: thumb_first_first
+          shift: [-0.5Ux,-0.5Ux]
+        - ref: matrix_pinky_bottom
+          shift: [-0.5Ux,-0.5Ux]
       fillet: 1
-  panel:
-    - what: outline
-      name: third
-      fillet: 0.5
+  combo:
+    - name: plate
+    - operation: subtract
+      name: raw
 pcbs:
-  architeuthis_dux:
+  test_pcb:
     outlines:
       main:
-        outline: panel
-    footprints:
-      choc_hotswap:
-        what: choc
-        where: true
-        params:
-          from: =column_net
-          to: GND
-          keycaps: true
-          reverse: true
-          hotswap: true
-      choc:
-        what: choc
-        where: true
-        adjust:
-          rotate: 180
-        params:
-          from: =column_net
-          to: GND
-          keycaps: true
-          reverse: true
-      promicro:
-        what: promicro
-        where:
-          ref: matrix_inner_home
-          shift: [19, -8.5]
-          rotate: -90
-        params:
-          orientation: down
+        outline: plate
