@@ -4,12 +4,15 @@ points:
   zones:
     matrix:
       key:
-        padding: U
-        spread: U
+        padding: u
+        spread: u
       columns:
-        pinky:
+        pinky_far:
           key:
             splay: 15
+        pinky:
+          key:
+            stagger: 7.5
           rows:
             bottom:
               column_net: P7
@@ -22,7 +25,7 @@ points:
           key:
             stagger: 12
             splay: -10
-            origin: [0, -17]
+            origin: [0, -9]
           rows:
             bottom:
               bind: [0, 0, 2, 10]
@@ -36,9 +39,9 @@ points:
         middle:
           key:
             shift: [0.2, 0]
-            stagger: 17/3
+            stagger: 17/2
             splay: -5
-            origin: [0, -17]
+            origin: [0, -9]
           rows:
             bottom:
               bind: [0, 10, 0, 5]
@@ -51,9 +54,9 @@ points:
               column_net: P18
         index:
           key:
-            stagger: -17/3
+            stagger: -17/2
             splay: -5
-            origin: [0, -17]
+            origin: [0, -7]
           rows:
             bottom:
               bind: [0, 5, 0, 0]
@@ -66,7 +69,7 @@ points:
               column_net: P16
         inner:
           key:
-            stagger: -10
+            stagger: -6
             origin: [0, -17]
           rows: 
             bottom:
@@ -82,10 +85,11 @@ points:
         bottom:
         home:
         top:
+        num:
     thumb:
       anchor:
         ref: matrix_inner_bottom
-        shift: [0,-40]
+        shift: [0,-22]
       columns:
         first:
           key:
@@ -94,23 +98,20 @@ points:
             first:
               column_net: P8
               bind: [10, 1, 0, 70]
-            second:
         second:
           key:
             splay: -10
-            origin: [-9, -9.5]
+            origin: [-9, -7.5]
           rows:
             first:
               column_net: P9
               bind: [0, 0, 0, 5]
-            second:
         third:
           key:
-            origin: [-9, -9.5]
+            origin: [-9, -7.5]
             splay: -10
           rows:
             first:
-            second:
 #  mirror: &mirror
 #    ref: matrix_inner_bottom
 #    distance: 6.5U  
@@ -124,25 +125,23 @@ outlines:
     - what: polygon
       operation: stack
       points:
-        - ref: matrix_pinky_top
+        - ref: matrix_pinky_far_num
           shift: [-0.5Ux,0.5Ux]
-        - ref: matrix_ring_top
+        - ref: matrix_ring_num
           shift: [-0.5Ux,0.5Ux]
-        - ref: matrix_middle_top
+        - ref: matrix_middle_num
           shift: [-0.5Ux,0.5Ux]
-        - ref: matrix_middle_top
+        - ref: matrix_middle_num
           shift: [0.5Ux,0.5Ux]
-        - ref: matrix_index_top
+        - ref: matrix_index_num
           shift: [0.5Ux,0.5Ux]
-        - ref: matrix_inner_top
+        - ref: matrix_inner_num
           shift: [0.5Ux,0.5Ux]
         - ref: matrix_inner_bottom
           shift: [0.5Ux,-0.37Ux]
-        - ref: thumb_second_second
+        - ref: thumb_second_first
           shift: [-0.5Ux,0.5Ux]
-        - ref: thumb_second_second
-          shift: [0.5Ux,0.5Ux]
-        - ref: thumb_third_second
+        - ref: thumb_third_first
           shift: [0.5Ux,0.5Ux]
         - ref: thumb_third_first
           shift: [0.5Ux,-0.5Ux]
@@ -152,7 +151,7 @@ outlines:
           shift: [-0.5Ux,-0.5Ux]
         - ref: thumb_first_first
           shift: [-0.5Ux,-0.5Ux]
-        - ref: matrix_pinky_bottom
+        - ref: matrix_pinky_far_bottom
           shift: [-0.5Ux,-0.5Ux]
       fillet: 1
   combo:

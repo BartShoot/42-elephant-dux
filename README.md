@@ -12,6 +12,10 @@ For generating layout with starting points for my pcb, plate etc I'll be using [
 
 ![Initial layout](/Images/initial.dxf)
 
+## 2nd iteration
+
+I've decided to add another pinky column and one row for numbers+symbols on default layer. Also I got rid of one thumb row, on flat keyboard it just doesn't feel right. If I had to have 6 thumb keys I'd make them angled so it's easier to press.
+
 # Case, switches and materials considerations
 
 Ideally I'd like this to be really quiet but prefer tactile switches so I could bring this to work and still have satisfying typing experience. I ordered mix of Outemu switches to try as I've heard they got some nice silent tactiles.
