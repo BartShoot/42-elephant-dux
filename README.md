@@ -16,8 +16,20 @@ For generating layout with starting points for my pcb, plate etc I'll be using [
 
 I've decided to add another pinky column and one row for numbers+symbols on default layer. Also I got rid of one thumb row, on flat keyboard it just doesn't feel right. If I had to have 6 thumb keys I'd make them angled so it's easier to press.
 
+## Prototype
+
+The 3D model is finished and ready to print!
+
+![Render from fusion](/Images/render.PNG)
+
+There are 4 elements - top cover, plate, walls and bottom. Plate is supposed to sit sandwiched between top and walls with gaskets. Bottom is where MCU, reset and power switch will be located - there is no battery mount so far.
+
 # Case, switches and materials considerations
 
-Ideally I'd like this to be really quiet but prefer tactile switches so I could bring this to work and still have satisfying typing experience. I ordered mix of Outemu switches to try as I've heard they got some nice silent tactiles.
+Ideally I'd like this to be really quiet but prefer tactile switches so I could bring this to work and still have satisfying typing experience.
 
-I'm considering trying to gasket mount this keyboard and use UHMWPE for plate. Due to its mechanical properties it should dampen a lot of the sounds especially on higher pitched frequencies. 
+The case will be completly 3D printed. The switches I picked are `Outemu Silent Cream Yellow`. Really smooth and silent switch with satisfying bump right at the top of the travel distance.
+
+The microcontrollers used in this project will be [nrf-52840](https://github.com/joric/nrfmicro/wiki/Alternatives#supermini-nrf52840)
+
+Stl files can be found and downloaded in `/Models` folder.
